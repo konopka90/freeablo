@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['next',['next',['../classFAWorld_1_1Position.html#a0c62785f94fb5e892b84954a2e1bc4c2',1,'FAWorld::Position']]]
+  ['newuniqueindex',['newUniqueIndex',['../classFARender_1_1SpriteCache.html#aa29b27a49149aac3fb83560d8d05867f',1,'FARender::SpriteCache']]],
+  ['next',['next',['../classFAWorld_1_1Position.html#aaab58152fbd29cfde68a7317dad1f83d',1,'FAWorld::Position']]]
 ];

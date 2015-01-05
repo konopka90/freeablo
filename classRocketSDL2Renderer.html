@@ -93,8 +93,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e626fb20eb543a0efd96e0289f35e43"></a><!-- doxytag: member="RocketSDL2Renderer::RocketSDL2Renderer" ref="a5e626fb20eb543a0efd96e0289f35e43" args="(SDL_Renderer *renderer, SDL_Window *screen, boost::function&lt; bool(Rocket::Core::TextureHandle &amp;, Rocket::Core::Vector2i &amp;, const Rocket::Core::String &amp;)&gt; loadTextureFunc, boost::function&lt; bool(Rocket::Core::TextureHandle &amp;, const Rocket::Core::byte *, const Rocket::Core::Vector2i &amp;)&gt; generateTextureFunc, boost::function&lt; void(Rocket::Core::TextureHandle)&gt; releaseTextureFunc)" -->
 &#160;</td><td class="memItemRight" valign="bottom"><b>RocketSDL2Renderer</b> (SDL_Renderer *renderer, SDL_Window *screen, boost::function&lt; bool(Rocket::Core::TextureHandle &amp;, Rocket::Core::Vector2i &amp;, const Rocket::Core::String &amp;)&gt; loadTextureFunc, boost::function&lt; bool(Rocket::Core::TextureHandle &amp;, const Rocket::Core::byte *, const Rocket::Core::Vector2i &amp;)&gt; generateTextureFunc, boost::function&lt; void(Rocket::Core::TextureHandle)&gt; releaseTextureFunc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49fdd0a02702bf6dd2e5f51e116037a3"></a><!-- doxytag: member="RocketSDL2Renderer::drawBuffer" ref="a49fdd0a02702bf6dd2e5f51e116037a3" args="(std::vector&lt; drawCommand &gt; &amp;buffer)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBuffer</b> (std::vector&lt; <a class="el" href="structdrawCommand.html">drawCommand</a> &gt; &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d590e7958e63257934ec4a23c33750f"></a><!-- doxytag: member="RocketSDL2Renderer::drawBuffer" ref="a4d590e7958e63257934ec4a23c33750f" args="(std::vector&lt; DrawCommand &gt; &amp;buffer, Render::SpriteCacheBase *cache)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBuffer</b> (std::vector&lt; <a class="el" href="structDrawCommand.html">DrawCommand</a> &gt; &amp;buffer, <a class="el" href="classRender_1_1SpriteCacheBase.html">Render::SpriteCacheBase</a> *cache)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a783a13f334b87e23a182513fc0c42b75"></a><!-- doxytag: member="RocketSDL2Renderer::RenderGeometry" ref="a783a13f334b87e23a182513fc0c42b75" args="(Rocket::Core::Vertex *vertices, int num_vertices, int *indices, int num_indices, Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f &amp;translation)" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRocketSDL2Renderer.html#a783a13f334b87e23a182513fc0c42b75">RenderGeometry</a> (Rocket::Core::Vertex *vertices, int num_vertices, int *indices, int num_indices, Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f &amp;translation)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by Rocket when it wants to render geometry that it does not wish to optimise. <br/></td></tr>
@@ -107,22 +107,16 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0e78538f385d5315b1e85a31417fcd1"></a><!-- doxytag: member="RocketSDL2Renderer::LoadTexture" ref="ab0e78538f385d5315b1e85a31417fcd1" args="(Rocket::Core::TextureHandle &amp;texture_handle, Rocket::Core::Vector2i &amp;texture_dimensions, const Rocket::Core::String &amp;source)" -->
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRocketSDL2Renderer.html#ab0e78538f385d5315b1e85a31417fcd1">LoadTexture</a> (Rocket::Core::TextureHandle &amp;texture_handle, Rocket::Core::Vector2i &amp;texture_dimensions, const Rocket::Core::String &amp;source)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by Rocket when a texture is required by the library. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14b1fa5dcff88dacabecc7066e983eb1"></a><!-- doxytag: member="RocketSDL2Renderer::LoadTextureImp" ref="a14b1fa5dcff88dacabecc7066e983eb1" args="(Rocket::Core::TextureHandle &amp;texture_handle, Rocket::Core::Vector2i &amp;texture_dimensions, const Rocket::Core::String &amp;source)" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadTextureImp</b> (Rocket::Core::TextureHandle &amp;texture_handle, Rocket::Core::Vector2i &amp;texture_dimensions, const Rocket::Core::String &amp;source)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d704d31e2b1b4c3dacbea97a8d3c6fe"></a><!-- doxytag: member="RocketSDL2Renderer::GenerateTexture" ref="a4d704d31e2b1b4c3dacbea97a8d3c6fe" args="(Rocket::Core::TextureHandle &amp;texture_handle, const Rocket::Core::byte *source, const Rocket::Core::Vector2i &amp;source_dimensions)" -->
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRocketSDL2Renderer.html#a4d704d31e2b1b4c3dacbea97a8d3c6fe">GenerateTexture</a> (Rocket::Core::TextureHandle &amp;texture_handle, const Rocket::Core::byte *source, const Rocket::Core::Vector2i &amp;source_dimensions)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by Rocket when a texture is required to be built from an internally-generated sequence of pixels. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac42e65a4b860b5f107bd140b9cccc6de"></a><!-- doxytag: member="RocketSDL2Renderer::GenerateTextureImp" ref="ac42e65a4b860b5f107bd140b9cccc6de" args="(Rocket::Core::TextureHandle &amp;texture_handle, const Rocket::Core::byte *source, const Rocket::Core::Vector2i &amp;source_dimensions)" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>GenerateTextureImp</b> (Rocket::Core::TextureHandle &amp;texture_handle, const Rocket::Core::byte *source, const Rocket::Core::Vector2i &amp;source_dimensions)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa159d9c39c0859dd01ed405169393b55"></a><!-- doxytag: member="RocketSDL2Renderer::ReleaseTexture" ref="aa159d9c39c0859dd01ed405169393b55" args="(Rocket::Core::TextureHandle texture_handle)" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRocketSDL2Renderer.html#aa159d9c39c0859dd01ed405169393b55">ReleaseTexture</a> (Rocket::Core::TextureHandle texture_handle)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by Rocket when a loaded texture is no longer required. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a984352115360757d10a9cf0852c02f15"></a><!-- doxytag: member="RocketSDL2Renderer::ReleaseTextureImp" ref="a984352115360757d10a9cf0852c02f15" args="(Rocket::Core::TextureHandle texture_handle)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ReleaseTextureImp</b> (Rocket::Core::TextureHandle texture_handle)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3c73dff819adf95bfb6693987495e97"></a><!-- doxytag: member="RocketSDL2Renderer::mDrawBuffer" ref="af3c73dff819adf95bfb6693987495e97" args="" -->
-std::vector&lt; <a class="el" href="structdrawCommand.html">drawCommand</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>mDrawBuffer</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a37533120bc9166fcba3713bbf33291"></a><!-- doxytag: member="RocketSDL2Renderer::mDrawBuffer" ref="a2a37533120bc9166fcba3713bbf33291" args="" -->
+std::vector&lt; <a class="el" href="structDrawCommand.html">DrawCommand</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>mDrawBuffer</b></td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>components/render/rocketglue/<a class="el" href="RenderInterfaceSDL2_8h_source.html">RenderInterfaceSDL2.h</a></li>
@@ -146,7 +140,7 @@ std::vector&lt; <a class="el" href="structdrawCommand.html">drawCommand</a> &gt;
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 3 2015 23:37:46 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 5 2015 20:15:48 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

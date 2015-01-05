@@ -101,8 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">FARender::Renderer Class Reference</div>  </div>
 </div><!--header-->
@@ -116,34 +115,28 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (int32_t windowWidth, int32_t windowHeight)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac0b2a11008ad9c45caff4410e974f07"></a><!-- doxytag: member="FARender::Renderer::stop" ref="aac0b2a11008ad9c45caff4410e974f07" args="()" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5809c7120e5ede6726eaf9b092f0f3b8"></a><!-- doxytag: member="FARender::Renderer::setLevel" ref="a5809c7120e5ede6726eaf9b092f0f3b8" args="(const Level::Level *level)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLevel</b> (const <a class="el" href="classLevel_1_1Level.html">Level::Level</a> *level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77adafd2068a68d2139f826c275bcf2a"></a><!-- doxytag: member="FARender::Renderer::getTileset" ref="a77adafd2068a68d2139f826c275bcf2a" args="(const Level::Level &amp;level)" -->
+<a class="el" href="classFARender_1_1Tileset.html">Tileset</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getTileset</b> (const <a class="el" href="classLevel_1_1Level.html">Level::Level</a> &amp;level)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4c33c3a19e242d3cda304a56a719e9a"></a><!-- doxytag: member="FARender::Renderer::getFreeState" ref="ac4c33c3a19e242d3cda304a56a719e9a" args="()" -->
 <a class="el" href="classFARender_1_1RenderState.html">RenderState</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFreeState</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f17e5a5e8d490f7bedcc0b2c2e48918"></a><!-- doxytag: member="FARender::Renderer::setCurrentState" ref="a7f17e5a5e8d490f7bedcc0b2c2e48918" args="(RenderState *current)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentState</b> (<a class="el" href="classFARender_1_1RenderState.html">RenderState</a> *current)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3bcc5a3217058dc2a3ce0469cbbd37a"></a><!-- doxytag: member="FARender::Renderer::loadImage" ref="ac3bcc5a3217058dc2a3ce0469cbbd37a" args="(const std::string &amp;path)" -->
-FASpriteGroup&#160;</td><td class="memItemRight" valign="bottom"><b>loadImage</b> (const std::string &amp;path)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a329881f4c2dface370eb97f15d4b862f"></a><!-- doxytag: member="FARender::Renderer::getClickedTile" ref="a329881f4c2dface370eb97f15d4b862f" args="(size_t x, size_t y)" -->
-std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getClickedTile</b> (size_t x, size_t y)</td></tr>
+<a class="el" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a>&#160;</td><td class="memItemRight" valign="bottom"><b>loadImage</b> (const std::string &amp;path)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1389c59547a623cfb30127d118c46b02"></a><!-- doxytag: member="FARender::Renderer::getClickedTile" ref="a1389c59547a623cfb30127d118c46b02" args="(size_t x, size_t y, const Level::Level &amp;level, const FAWorld::Position &amp;screenPos)" -->
+std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getClickedTile</b> (size_t x, size_t y, const <a class="el" href="classLevel_1_1Level.html">Level::Level</a> &amp;level, const <a class="el" href="classFAWorld_1_1Position.html">FAWorld::Position</a> &amp;screenPos)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f198f6d107afbe18b9f68231c4b2b8c"></a><!-- doxytag: member="FARender::Renderer::getRocketContext" ref="a9f198f6d107afbe18b9f68231c4b2b8c" args="()" -->
 Rocket::Core::Context *&#160;</td><td class="memItemRight" valign="bottom"><b>getRocketContext</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5589f93cab1a0c3e84eb57a63e16774"></a><!-- doxytag: member="FARender::Renderer::loadGuiTextureFunc" ref="ab5589f93cab1a0c3e84eb57a63e16774" args="(Rocket::Core::TextureHandle &amp;, Rocket::Core::Vector2i &amp;, const Rocket::Core::String &amp;)" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>loadGuiTextureFunc</b> (Rocket::Core::TextureHandle &amp;, Rocket::Core::Vector2i &amp;, const Rocket::Core::String &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44eda54d8963b9709f7c2f51796bcd5e"></a><!-- doxytag: member="FARender::Renderer::generateGuiTextureFunc" ref="a44eda54d8963b9709f7c2f51796bcd5e" args="(Rocket::Core::TextureHandle &amp;, const Rocket::Core::byte *source, const Rocket::Core::Vector2i &amp;)" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>generateGuiTextureFunc</b> (Rocket::Core::TextureHandle &amp;, const Rocket::Core::byte *source, const Rocket::Core::Vector2i &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89c4c7683fb450f61d931bc319bd4e6a"></a><!-- doxytag: member="FARender::Renderer::releaseGuiTextureFunc" ref="a89c4c7683fb450f61d931bc319bd4e6a" args="(Rocket::Core::TextureHandle texture_handle)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>releaseGuiTextureFunc</b> (Rocket::Core::TextureHandle texture_handle)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af53ce952ee7d0d7d86e54887529de2b1"></a><!-- doxytag: member="FARender::Renderer::playMusic" ref="af53ce952ee7d0d7d86e54887529de2b1" args="(const std::string &amp;path)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>playMusic</b> (const std::string &amp;path)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88cc3dea831849389aee0f4dfd55b007"></a><!-- doxytag: member="FARender::Renderer::renderFrame" ref="a88cc3dea831849389aee0f4dfd55b007" args="()" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFARender_1_1Renderer.html#a88cc3dea831849389aee0f4dfd55b007">renderFrame</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called only by <a class="el" href="classEngine_1_1ThreadManager.html">Engine::ThreadManager</a>. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c3143aefd6b3454e511ed572dad79c9"></a><!-- doxytag: member="FARender::Renderer::cleanup" ref="a7c3143aefd6b3454e511ed572dad79c9" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFARender_1_1Renderer.html#a7c3143aefd6b3454e511ed572dad79c9">cleanup</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called only by <a class="el" href="classEngine_1_1ThreadManager.html">Engine::ThreadManager</a>. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e68b29718f806cb93cc71656c5a4c28"></a><!-- doxytag: member="FARender::Renderer::get" ref="a4e68b29718f806cb93cc71656c5a4c28" args="()" -->
 static <a class="el" href="classFARender_1_1Renderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> ()</td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a075801b647c57f36888322f7cc1f10fe"></a><!-- doxytag: member="FARender::Renderer::CacheSpriteGroup" ref="a075801b647c57f36888322f7cc1f10fe" args="" -->
-class&#160;</td><td class="memItemRight" valign="bottom"><b>CacheSpriteGroup</b></td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>apps/freeablo/farender/<a class="el" href="renderer_8h_source.html">renderer.h</a></li>
@@ -167,7 +160,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CacheSpriteGroup</b>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 3 2015 23:37:46 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 5 2015 20:15:48 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
