@@ -96,6 +96,10 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96e8681bec0c217e0af771edd596d551"></a><!-- doxytag: member="FAIO::getStormLibPath" ref="a96e8681bec0c217e0af771edd596d551" args="(const bfs::path &amp;path)" -->
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getStormLibPath</b> (const bfs::path &amp;path)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ce5935a565a93464fa235a1b7815eb5"></a><!-- doxytag: member="FAIO::init" ref="a1ce5935a565a93464fa235a1b7815eb5" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae82e5f53b89d70f240951c564bdff66a"></a><!-- doxytag: member="FAIO::quit" ref="ae82e5f53b89d70f240951c564bdff66a" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19fa8e6274a04bdeb5c54d1552e6248e"></a><!-- doxytag: member="FAIO::FAfopen" ref="a19fa8e6274a04bdeb5c54d1552e6248e" args="(const std::string &amp;filename)" -->
 <a class="el" href="structFAIO_1_1FAFile.html">FAFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>FAfopen</b> (const std::string &amp;filename)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68409e8d223eec973ba9abdce4e0c6d0"></a><!-- doxytag: member="FAIO::FAfread" ref="a68409e8d223eec973ba9abdce4e0c6d0" args="(void *ptr, size_t size, size_t count, FAFile *stream)" -->
@@ -122,6 +126,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getMPQFileName
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac028d27ae21c8f693cf0e0bf454f9d6"></a><!-- doxytag: member="FAIO::DIABDAT_MPQ" ref="aac028d27ae21c8f693cf0e0bf454f9d6" args="" -->
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>DIABDAT_MPQ</b> = &quot;DIABDAT.MPQ&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17a78db84b4454ea573e48ca4f9eb0c5"></a><!-- doxytag: member="FAIO::m" ref="a17a78db84b4454ea573e48ca4f9eb0c5" args="" -->
+boost::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>m</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae603d88d7043fda505d88d24d0d8ab83"></a><!-- doxytag: member="FAIO::diabdat" ref="ae603d88d7043fda505d88d24d0d8ab83" args="" -->
 HANDLE&#160;</td><td class="memItemRight" valign="bottom"><b>diabdat</b> = NULL</td></tr>
 </table>
@@ -145,7 +151,7 @@ HANDLE&#160;</td><td class="memItemRight" valign="bottom"><b>diabdat</b> = NULL<
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 5 2015 20:20:35 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 11 2015 23:31:35 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

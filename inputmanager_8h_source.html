@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;stdint.h&gt;</span>
 <a name="l00005"></a>00005 
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;boost/function.hpp&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;boost/lockfree/queue.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;boost/lockfree/spsc_queue.hpp&gt;</span>
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="preprocessor">#include &lt;misc/disablewarn.h&gt;</span>
 <a name="l00010"></a>00010 <span class="preprocessor">    #include &lt;Rocket/Core.h&gt;</span>
@@ -145,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00064"></a>00064                 } vals;
 <a name="l00065"></a>00065             };
 <a name="l00066"></a>00066 
-<a name="l00067"></a>00067             boost::lockfree::queue&lt;Event&gt; mQueue;
+<a name="l00067"></a>00067             boost::lockfree::spsc_queue&lt;Event, boost::lockfree::capacity&lt;500&gt; &gt; mQueue;
 <a name="l00068"></a>00068             boost::function&lt;void(Key)&gt; mKeyPress;
 <a name="l00069"></a>00069             boost::function&lt;void(Key)&gt; mKeyRelease;
 <a name="l00070"></a>00070             boost::function&lt;void(uint32_t, uint32_t, Key)&gt; mMouseClick;
@@ -179,7 +179,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 5 2015 20:20:34 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 11 2015 23:31:35 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -88,93 +88,94 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00006"></a>00006 
 <a name="l00007"></a>00007 <span class="preprocessor">#include &lt;map&gt;</span>
 <a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;boost/thread.hpp&gt;</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;render/render.h&gt;</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;../faworld/position.h&quot;</span>
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;spritemanager.h&quot;</span>
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="namespaceLevel.html">00017</a> <span class="keyword">namespace </span><a class="code" href="classLevel_1_1Level.html">Level</a>
-<a name="l00018"></a>00018 {
-<a name="l00019"></a>00019     <span class="keyword">class </span><a class="code" href="classLevel_1_1Level.html">Level</a>;
-<a name="l00020"></a>00020 }
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="keyword">namespace </span>FARender
-<a name="l00023"></a>00023 {       
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025     <span class="keyword">class </span>Renderer;
-<a name="l00026"></a><a class="code" href="classFARender_1_1Tileset.html">00026</a>     <span class="keyword">class </span><a class="code" href="classFARender_1_1Tileset.html">Tileset</a>
-<a name="l00027"></a>00027     {
-<a name="l00028"></a>00028         <span class="keyword">private</span>:
-<a name="l00029"></a>00029             <a class="code" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a> minTops;
-<a name="l00030"></a>00030             <a class="code" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a> minBottoms;
-<a name="l00031"></a>00031             <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classFARender_1_1Renderer.html">Renderer</a>;
-<a name="l00032"></a>00032     };
-<a name="l00033"></a>00033 
-<a name="l00034"></a><a class="code" href="classFARender_1_1RenderState.html">00034</a>     <span class="keyword">class </span><a class="code" href="classFARender_1_1RenderState.html">RenderState</a>
-<a name="l00035"></a>00035     {
-<a name="l00036"></a>00036         <span class="keyword">public</span>:
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         boost::mutex mMutex;
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040         <a class="code" href="classFAWorld_1_1Position.html">FAWorld::Position</a> mPos;
-<a name="l00041"></a>00041         
-<a name="l00042"></a><a class="code" href="classFARender_1_1RenderState.html#ae7c742784a3a915ea3a33b8944b0fb11">00042</a>         std::vector&lt;boost::tuple&lt;FASpriteGroup, size_t, FAWorld::Position&gt; &gt; <a class="code" href="classFARender_1_1RenderState.html#ae7c742784a3a915ea3a33b8944b0fb11" title="group, index into group, and position">mObjects</a>; 
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044         std::vector&lt;DrawCommand&gt; guiDrawBuffer;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <a class="code" href="classFARender_1_1Tileset.html">Tileset</a> tileset;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048         <a class="code" href="classLevel_1_1Level.html">Level::Level</a>* level;
-<a name="l00049"></a>00049     };
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;boost/atomic.hpp&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;boost/tuple/tuple.hpp&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;render/render.h&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;../faworld/position.h&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;spritemanager.h&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="namespaceLevel.html">00018</a> <span class="keyword">namespace </span><a class="code" href="classLevel_1_1Level.html">Level</a>
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020     <span class="keyword">class </span><a class="code" href="classLevel_1_1Level.html">Level</a>;
+<a name="l00021"></a>00021 }
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>FARender
+<a name="l00024"></a>00024 {       
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     <span class="keyword">class </span>Renderer;
+<a name="l00027"></a><a class="code" href="classFARender_1_1Tileset.html">00027</a>     <span class="keyword">class </span><a class="code" href="classFARender_1_1Tileset.html">Tileset</a>
+<a name="l00028"></a>00028     {
+<a name="l00029"></a>00029         <span class="keyword">private</span>:
+<a name="l00030"></a>00030             <a class="code" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a> minTops;
+<a name="l00031"></a>00031             <a class="code" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a> minBottoms;
+<a name="l00032"></a>00032             <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classFARender_1_1Renderer.html">Renderer</a>;
+<a name="l00033"></a>00033     };
+<a name="l00034"></a>00034 
+<a name="l00035"></a><a class="code" href="classFARender_1_1RenderState.html">00035</a>     <span class="keyword">class </span><a class="code" href="classFARender_1_1RenderState.html">RenderState</a>
+<a name="l00036"></a>00036     {
+<a name="l00037"></a>00037         <span class="keyword">public</span>:
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039         boost::atomic&lt;bool&gt; ready;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041         <a class="code" href="classFAWorld_1_1Position.html">FAWorld::Position</a> mPos;
+<a name="l00042"></a>00042         
+<a name="l00043"></a><a class="code" href="classFARender_1_1RenderState.html#ae7c742784a3a915ea3a33b8944b0fb11">00043</a>         std::vector&lt;boost::tuple&lt;FASpriteGroup, size_t, FAWorld::Position&gt; &gt; <a class="code" href="classFARender_1_1RenderState.html#ae7c742784a3a915ea3a33b8944b0fb11" title="group, index into group, and position">mObjects</a>; 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         std::vector&lt;DrawCommand&gt; guiDrawBuffer;
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047         <a class="code" href="classFARender_1_1Tileset.html">Tileset</a> tileset;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049         <a class="code" href="classLevel_1_1Level.html">Level::Level</a>* level;
 <a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="classFARender_1_1Renderer.html">00051</a>     <span class="keyword">class </span><a class="code" href="classFARender_1_1Renderer.html">Renderer</a>
-<a name="l00052"></a>00052     {
-<a name="l00053"></a>00053         <span class="keyword">public</span>:
-<a name="l00054"></a>00054             <span class="keyword">static</span> <a class="code" href="classFARender_1_1Renderer.html">Renderer</a>* <span class="keyword">get</span>();
-<a name="l00055"></a>00055             
-<a name="l00056"></a>00056             <a class="code" href="classFARender_1_1Renderer.html">Renderer</a>(int32_t windowWidth, int32_t windowHeight);
-<a name="l00057"></a>00057             ~Renderer();
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059             <span class="keywordtype">void</span> stop();
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061             <a class="code" href="classFARender_1_1Tileset.html">Tileset</a> getTileset(<span class="keyword">const</span> <a class="code" href="classLevel_1_1Level.html">Level::Level</a>&amp; level);
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063             <a class="code" href="classFARender_1_1RenderState.html">RenderState</a>* getFreeState(); <span class="comment">// ooh ah up de ra</span>
-<a name="l00064"></a>00064             <span class="keywordtype">void</span> setCurrentState(<a class="code" href="classFARender_1_1RenderState.html">RenderState</a>* current);
+<a name="l00051"></a>00051         <a class="code" href="classFARender_1_1RenderState.html">RenderState</a>():ready(true) {}
+<a name="l00052"></a>00052     };
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="classFARender_1_1Renderer.html">00054</a>     <span class="keyword">class </span><a class="code" href="classFARender_1_1Renderer.html">Renderer</a>
+<a name="l00055"></a>00055     {
+<a name="l00056"></a>00056         <span class="keyword">public</span>:
+<a name="l00057"></a>00057             <span class="keyword">static</span> <a class="code" href="classFARender_1_1Renderer.html">Renderer</a>* <span class="keyword">get</span>();
+<a name="l00058"></a>00058             
+<a name="l00059"></a>00059             <a class="code" href="classFARender_1_1Renderer.html">Renderer</a>(int32_t windowWidth, int32_t windowHeight);
+<a name="l00060"></a>00060             ~Renderer();
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062             <span class="keywordtype">void</span> stop();
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064             <a class="code" href="classFARender_1_1Tileset.html">Tileset</a> getTileset(<span class="keyword">const</span> <a class="code" href="classLevel_1_1Level.html">Level::Level</a>&amp; level);
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066             <a class="code" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a> loadImage(<span class="keyword">const</span> std::string&amp; path);
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068             std::pair&lt;size_t, size_t&gt; getClickedTile(<span class="keywordtype">size_t</span> x, <span class="keywordtype">size_t</span> y, <span class="keyword">const</span> <a class="code" href="classLevel_1_1Level.html">Level::Level</a>&amp; level, <span class="keyword">const</span> <a class="code" href="classFAWorld_1_1Position.html">FAWorld::Position</a>&amp; screenPos);
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070             Rocket::Core::Context* getRocketContext();
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072             <span class="keywordtype">bool</span> <a class="code" href="classFARender_1_1Renderer.html#a88cc3dea831849389aee0f4dfd55b007" title="To be called only by Engine::ThreadManager.">renderFrame</a>(); 
-<a name="l00073"></a>00073             <span class="keywordtype">void</span> <a class="code" href="classFARender_1_1Renderer.html#a7c3143aefd6b3454e511ed572dad79c9" title="To be called only by Engine::ThreadManager.">cleanup</a>(); 
-<a name="l00074"></a>00074             
-<a name="l00075"></a>00075         <span class="keyword">private</span>:
-<a name="l00076"></a>00076             <span class="keywordtype">bool</span> loadGuiTextureFunc(Rocket::Core::TextureHandle&amp; texture_handle, Rocket::Core::Vector2i&amp; texture_dimensions, <span class="keyword">const</span> Rocket::Core::String&amp; source);
-<a name="l00077"></a>00077             <span class="keywordtype">bool</span> generateGuiTextureFunc(Rocket::Core::TextureHandle&amp; texture_handle, <span class="keyword">const</span> Rocket::Core::byte* source, <span class="keyword">const</span> Rocket::Core::Vector2i&amp; source_dimensions);
-<a name="l00078"></a>00078             <span class="keywordtype">void</span> releaseGuiTextureFunc(Rocket::Core::TextureHandle texture_handle);
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080             <span class="keyword">static</span> Renderer* mRenderer; 
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082             <span class="keywordtype">bool</span> mDone;
-<a name="l00083"></a>00083             Render::LevelObjects mLevelObjects;
+<a name="l00066"></a>00066             <a class="code" href="classFARender_1_1RenderState.html">RenderState</a>* getFreeState(); <span class="comment">// ooh ah up de ra</span>
+<a name="l00067"></a>00067             <span class="keywordtype">void</span> setCurrentState(<a class="code" href="classFARender_1_1RenderState.html">RenderState</a>* current);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069             <a class="code" href="classFARender_1_1FASpriteGroup.html">FASpriteGroup</a> loadImage(<span class="keyword">const</span> std::string&amp; path);
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071             std::pair&lt;size_t, size_t&gt; getClickedTile(<span class="keywordtype">size_t</span> x, <span class="keywordtype">size_t</span> y, <span class="keyword">const</span> <a class="code" href="classLevel_1_1Level.html">Level::Level</a>&amp; level, <span class="keyword">const</span> <a class="code" href="classFAWorld_1_1Position.html">FAWorld::Position</a>&amp; screenPos);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073             Rocket::Core::Context* getRocketContext();
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075             <span class="keywordtype">bool</span> <a class="code" href="classFARender_1_1Renderer.html#ad6e983189d6cf6b7aaef89d54ed89396" title="To be called only by Engine::ThreadManager.">renderFrame</a>(<a class="code" href="classFARender_1_1RenderState.html">RenderState</a>* state); 
+<a name="l00076"></a>00076             <span class="keywordtype">void</span> <a class="code" href="classFARender_1_1Renderer.html#a7c3143aefd6b3454e511ed572dad79c9" title="To be called only by Engine::ThreadManager.">cleanup</a>(); 
+<a name="l00077"></a>00077             
+<a name="l00078"></a>00078         <span class="keyword">private</span>:
+<a name="l00079"></a>00079             <span class="keywordtype">bool</span> loadGuiTextureFunc(Rocket::Core::TextureHandle&amp; texture_handle, Rocket::Core::Vector2i&amp; texture_dimensions, <span class="keyword">const</span> Rocket::Core::String&amp; source);
+<a name="l00080"></a>00080             <span class="keywordtype">bool</span> generateGuiTextureFunc(Rocket::Core::TextureHandle&amp; texture_handle, <span class="keyword">const</span> Rocket::Core::byte* source, <span class="keyword">const</span> Rocket::Core::Vector2i&amp; source_dimensions);
+<a name="l00081"></a>00081             <span class="keywordtype">void</span> releaseGuiTextureFunc(Rocket::Core::TextureHandle texture_handle);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083             <span class="keyword">static</span> Renderer* mRenderer; 
 <a name="l00084"></a>00084 
-<a name="l00085"></a>00085             <a class="code" href="classFARender_1_1RenderState.html">RenderState</a> mStates[3];
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087             <a class="code" href="classFARender_1_1RenderState.html">RenderState</a>* mCurrent;
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089             Rocket::Core::Context* mRocketContext;
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091             <a class="code" href="classFARender_1_1SpriteManager.html" title="Manager for game sprites. Mostly just a wrapper for SpriteCache, see that for documentation of member...">SpriteManager</a> mSpriteManager;
-<a name="l00092"></a>00092     };
-<a name="l00093"></a>00093 }
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 <span class="preprocessor">#endif</span>
+<a name="l00085"></a>00085             boost::atomic&lt;bool&gt; mDone;
+<a name="l00086"></a>00086             Render::LevelObjects mLevelObjects;
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088             <a class="code" href="classFARender_1_1RenderState.html">RenderState</a> mStates[3];
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090             Rocket::Core::Context* mRocketContext;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092             <a class="code" href="classFARender_1_1SpriteManager.html" title="Manager for game sprites. Mostly just a wrapper for SpriteCache, see that for documentation of member...">SpriteManager</a> mSpriteManager;
+<a name="l00093"></a>00093     };
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -193,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 5 2015 20:20:34 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 11 2015 23:31:35 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
