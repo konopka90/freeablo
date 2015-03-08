@@ -123,6 +123,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawGui</b> (std::vec
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getImageInfo</b> (const std::string &amp;path, size_t &amp;width, size_t &amp;height, size_t &amp;animLength, int32_t celIndex=0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39ae636123baef1a7d42446331c82b28"></a><!-- doxytag: member="Render::loadSprite" ref="a39ae636123baef1a7d42446331c82b28" args="(const std::string &amp;path, bool hasTrans, size_t transR, size_t transG, size_t transB)" -->
 <a class="el" href="classRender_1_1SpriteGroup.html">SpriteGroup</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>loadSprite</b> (const std::string &amp;path, bool hasTrans, size_t transR, size_t transG, size_t transB)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6568e7174aad7806fee63be8c2cca9c"></a><!-- doxytag: member="Render::loadVanimSprite" ref="ac6568e7174aad7806fee63be8c2cca9c" args="(const std::string &amp;path, size_t vAnim, bool hasTrans, size_t transR, size_t transG, size_t transB)" -->
+<a class="el" href="classRender_1_1SpriteGroup.html">SpriteGroup</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>loadVanimSprite</b> (const std::string &amp;path, size_t vAnim, bool hasTrans, size_t transR, size_t transG, size_t transB)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac646c56aea3fdde53579b833d2679947"></a><!-- doxytag: member="Render::loadSprite" ref="ac646c56aea3fdde53579b833d2679947" args="(const uint8_t *source, size_t width, size_t height)" -->
 <a class="el" href="classRender_1_1SpriteGroup.html">SpriteGroup</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>loadSprite</b> (const uint8_t *source, size_t width, size_t height)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7087bcd1e1950ec6ef28ff4897018fd9"></a><!-- doxytag: member="Render::draw" ref="a7087bcd1e1950ec6ef28ff4897018fd9" args="()" -->
@@ -151,12 +153,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getImageExtens
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setpixel</b> (SDL_Surface *s, int x, int y, <a class="el" href="structCel_1_1Colour.html">Cel::Colour</a> c)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83ee7f6e3cb7a513ab4bac2c05614c26"></a><!-- doxytag: member="Render::createTransparentSurface" ref="a83ee7f6e3cb7a513ab4bac2c05614c26" args="(size_t width, size_t height)" -->
 SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>createTransparentSurface</b> (size_t width, size_t height)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a104d79dc130b58dd05645cc9ddfbe307"></a><!-- doxytag: member="Render::loadNonCelImageTrans" ref="a104d79dc130b58dd05645cc9ddfbe307" args="(const std::string &amp;path, const std::string &amp;extension, bool hasTrans, size_t transR, size_t transG, size_t transB)" -->
+SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>loadNonCelImageTrans</b> (const std::string &amp;path, const std::string &amp;extension, bool hasTrans, size_t transR, size_t transG, size_t transB)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa59a6d2c1fc80969f9af8a563250bf0"></a><!-- doxytag: member="Render::clearTransparentSurface" ref="aaa59a6d2c1fc80969f9af8a563250bf0" args="(SDL_Surface *s)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearTransparentSurface</b> (SDL_Surface *s)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb85f11e5c4be39b6510bb0f61241429"></a><!-- doxytag: member="Render::drawAt" ref="abb85f11e5c4be39b6510bb0f61241429" args="(SDL_Texture *sprite, size_t x, size_t y)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawAt</b> (SDL_Texture *sprite, size_t x, size_t y)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8384399aba8d9bca82788367f744016f"></a><!-- doxytag: member="Render::drawFrame" ref="a8384399aba8d9bca82788367f744016f" args="(SDL_Surface *s, int start_x, int start_y, const Cel::CelFrame &amp;frame)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFrame</b> (SDL_Surface *s, int start_x, int start_y, const <a class="el" href="classCel_1_1CelFrame.html">Cel::CelFrame</a> &amp;frame)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa59a6d2c1fc80969f9af8a563250bf0"></a><!-- doxytag: member="Render::clearTransparentSurface" ref="aaa59a6d2c1fc80969f9af8a563250bf0" args="(SDL_Surface *s)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearTransparentSurface</b> (SDL_Surface *s)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab52f404c5feb88408defadb935b310e5"></a><!-- doxytag: member="Render::drawMinPillarTop" ref="ab52f404c5feb88408defadb935b310e5" args="(SDL_Surface *s, int x, int y, const std::vector&lt; int16_t &gt; &amp;pillar, Cel::CelFile &amp;tileset)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawMinPillarTop</b> (SDL_Surface *s, int x, int y, const std::vector&lt; int16_t &gt; &amp;pillar, <a class="el" href="classCel_1_1CelFile.html">Cel::CelFile</a> &amp;tileset)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17a1ce99e9825ff602e9834cb8a7a409"></a><!-- doxytag: member="Render::drawMinPillarBase" ref="a17a1ce99e9825ff602e9834cb8a7a409" args="(SDL_Surface *s, int x, int y, const std::vector&lt; int16_t &gt; &amp;pillar, Cel::CelFile &amp;tileset)" -->
@@ -212,7 +216,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resized</b> = false</
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 8 2015 18:14:27 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 8 2015 22:36:13 for Freeablo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
