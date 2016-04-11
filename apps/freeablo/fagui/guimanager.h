@@ -39,7 +39,7 @@ namespace FAGui
         void openDialogue(const std::string& document);
         void closeDialogue();
         bool isDialogueOpened() const;
-        void openDialogueScrollbox(const std::string& document);
+        void openDialogueScrollbox(const std::string& document, const std::string& onFinishOpenDocument = "");
         void closeDialogueScrollbox();
         bool isDialogueScrollboxOpened() const;
         void showTitleScreen();
@@ -87,7 +87,10 @@ namespace FAGui
         void updateGui(bool paused);
         void hideAllMenus();
 
+        const std::string DIALOGUE_PATH = "resources/gui/dialogues/";
+
         Rocket::Core::ElementDocument * mDocument;
+        std::string mOnFinishOpenDialogue;
         std::function<void(GuiManager&)> mFadeOutCallback;
         float mFadeDelta;
         float mFadeValue;

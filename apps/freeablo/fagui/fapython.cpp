@@ -26,9 +26,9 @@ namespace FAGui
         mGuiManager.closeDialogue();
     }
 
-    void FAPythonFuncs::openDialogueScrollbox(const char* document)
+    void FAPythonFuncs::openDialogueScrollbox(const char* document, const char* onFinishOpenDialogue)
     {
-        mGuiManager.openDialogueScrollbox(document);
+        mGuiManager.openDialogueScrollbox(document, onFinishOpenDialogue);
     }
 
     void FAPythonFuncs::closeDialogueScrollbox()
@@ -490,7 +490,7 @@ namespace FAGui
     {
         boost::python::def("openDialogue", +[](const char* document){funcs->openDialogue(document);});
         boost::python::def("closeDialogue", +[](){funcs->closeDialogue();});
-        boost::python::def("openDialogueScrollbox", +[](const char* document){funcs->openDialogueScrollbox(document);});
+        boost::python::def("openDialogueScrollbox", +[](const char* document, const char* onFinishOpenDialogue){funcs->openDialogueScrollbox(document,onFinishOpenDialogue);});
         boost::python::def("closeDialogueScrollbox", +[](){funcs->closeDialogueScrollbox();});
         boost::python::def("showMainMenu", +[](){funcs->showMainMenu();});
         boost::python::def("showCredits", +[](){funcs->showCredits();});

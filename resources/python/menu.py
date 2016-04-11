@@ -88,7 +88,7 @@ class Menu(object):
         freeablo.playClickButtonSound()
         currentEntry = self.entries[self.current]
         if("func" in currentEntry):
-            currentEntry["func"](currentEntry["args"]) if "args" in currentEntry \
+            currentEntry["func"](*currentEntry["args"]) if "args" in currentEntry \
                 else currentEntry["func"]()
 
     def onKeyDown(self, event):

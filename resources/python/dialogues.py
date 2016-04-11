@@ -22,8 +22,6 @@ def openDialogue(rml, openingSound):
 
     global DIALOGUE_PATH
 
-    freeablo.stopSound()
-
     if openingSound != "":
         freeablo.playSound(openingSound)
 
@@ -31,24 +29,26 @@ def openDialogue(rml, openingSound):
         rml = DIALOGUE_PATH + rml
         freeablo.openDialogue(rml)
 
-def openScrollbox(rml, openingSound):
+
+def openScrollbox(rml, openingSound, onFinishOpenDialogue = None):
 
     global DIALOGUE_PATH
-
-    freeablo.stopSound()
 
     if openingSound != "":
         freeablo.playSound(openingSound)
 
     if rml != "":
         rml = DIALOGUE_PATH + rml
-        freeablo.openDialogueScrollbox(rml)
+        if onFinishOpenDialogue is None:
+            onFinishOpenDialogue = ""
+        freeablo.openDialogueScrollbox(rml, onFinishOpenDialogue)
 
 def talkTo(npcId):
 
     print npcId
 
     closeOtherWindows()
+    freeablo.stopSound()
 
     if npcId == 'NPCsmith':
         openDialogue("NPCsmith.rml","sfx/Towners/Bsmith44.wav")

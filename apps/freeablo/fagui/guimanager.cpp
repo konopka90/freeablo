@@ -70,16 +70,20 @@ namespace FAGui
         return mDocument != nullptr;
     }
 
-    void GuiManager::openDialogueScrollbox(const std::string& document)
+    void GuiManager::openDialogueScrollbox(const std::string& document, const std::string& onFinishOpenDialogue)
     {
         openDialogue(document);
         mDialogueScrollBox = std::make_shared<ScrollBox>(mDocument);
+        mOnFinishOpenDialogue = DIALOGUE_PATH + onFinishOpenDialogue;
     }
 
     void GuiManager::closeDialogueScrollbox()
     {
         mDialogueScrollBox = nullptr;
         closeDialogue();
+        if(!mOnFinishOpenDialogue.empty()) {
+            openDialogue(mOnFinishOpenDialogue);
+        }
     }
 
     bool GuiManager::isDialogueScrollboxOpened() const

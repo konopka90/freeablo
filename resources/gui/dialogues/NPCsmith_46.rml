@@ -1,0 +1,42 @@
+<rml>
+<head>
+<link type="text/template" href="scrollbox.rml"/>
+<style>
+div#scrollbox
+{
+    speed: 0.0003;
+}
+</style>
+<script>
+
+
+import rocket
+import freeablo
+import dialogues
+
+def closeScrollbox():
+    freeablo.stopSound()
+    freeablo.closeDialogueScrollbox()
+
+def onLoad(document):
+    pass
+
+def onKeyDown(event, document):
+    closeScrollbox()
+
+def onClick(event, document):
+    closeScrollbox()
+
+
+</script>
+</head>
+<body template="scrollbox" onload="onLoad(document)" onkeydown="onKeyDown(event, document)" onclick="onClick(event, document)">
+   <span class="scrollbox_row">the axe? aye, that's a good weapon,
+    balanced against any foe, look how it
+    cleaves the air, and then imagine a nice
+    fat demon head in its path, keep in mind,
+    however, that it is slow to swing - but
+    talk about dealing a heavy blow!
+    </span>
+</body>
+</rml>

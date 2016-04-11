@@ -29,7 +29,7 @@ namespace FAGui
         protected:
             void openDialogue(const char* document);
             void closeDialogue();
-            void openDialogueScrollbox(const char* document);
+            void openDialogueScrollbox(const char* document, const char* onFinishOpenDialogue = "");
             void closeDialogueScrollbox();
             void showMainMenu();
             void showCredits();
