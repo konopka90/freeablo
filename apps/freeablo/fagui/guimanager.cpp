@@ -74,7 +74,7 @@ namespace FAGui
     {
         openDialogue(document);
         mDialogueScrollBox = std::make_shared<ScrollBox>(mDocument);
-        mOnFinishOpenDialogue = DIALOGUE_PATH + onFinishOpenDialogue;
+        mOnFinishOpenDialogue = onFinishOpenDialogue;
     }
 
     void GuiManager::closeDialogueScrollbox()

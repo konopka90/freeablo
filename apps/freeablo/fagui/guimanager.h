@@ -87,8 +87,6 @@ namespace FAGui
         void updateGui(bool paused);
         void hideAllMenus();
 
-        const std::string DIALOGUE_PATH = "resources/gui/dialogues/";
-
         Rocket::Core::ElementDocument * mDocument;
         std::string mOnFinishOpenDialogue;
         std::function<void(GuiManager&)> mFadeOutCallback;

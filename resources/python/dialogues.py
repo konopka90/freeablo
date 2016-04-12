@@ -41,6 +41,11 @@ def openScrollbox(rml, openingSound, onFinishOpenDialogue = None):
         rml = DIALOGUE_PATH + rml
         if onFinishOpenDialogue is None:
             onFinishOpenDialogue = ""
+        else:
+            onFinishOpenDialogue = DIALOGUE_PATH + onFinishOpenDialogue
+
+        print onFinishOpenDialogue
+
         freeablo.openDialogueScrollbox(rml, onFinishOpenDialogue)
 
 def talkTo(npcId):
