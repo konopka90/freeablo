@@ -21,7 +21,7 @@ mainMenu = None
 def onLoad(document):
     entries = [
     {"text": 'talk to griswold', "func": dialogues.openDialogue, "args": [ "NPCsmith_gossip.rml", "" ] },
-    {"text": 'buy basic items', "func": freeablo.closeDialogue},
+    {"text": 'buy basic items', "func": dialogues.openTrade, "args": [ "NPCsmith_trade_basic_items.rml" ]},
     {"text": 'buy premium items', "func": freeablo.closeDialogue},
     {"text": 'sell items', "func": freeablo.closeDialogue},
     {"text": 'repair items', "func": freeablo.closeDialogue},

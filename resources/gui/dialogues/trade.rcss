@@ -1,0 +1,122 @@
+body
+{
+    font-family: FreeabloWhite11;
+}
+
+img#background
+{
+    width: 591px;
+    height: 303px;
+
+    margin: auto;
+    display:block;
+}
+
+img.checker
+{
+    width: 585px;
+    height: 298px;
+    margin-left: 3px;
+    margin-top: 3px;
+    display:block;
+}
+
+div.trade
+{
+    min-width: 585px;
+    min-height: 297px;
+    max-width: 585px;
+    max-height: 297px;
+    margin-left: 0px;
+
+    display:block;
+}
+
+div.trade-header {
+    width: 585px;
+    height: 44px;
+    margin-top: 2px;
+    display:block;
+}
+
+div.trade-header-separator { 
+    width:585px;
+    height:16px;
+    display:block;
+}
+
+div.trade-header-i-have-these-items {
+
+    margin-left: 54px;
+    display:inline;
+}
+
+div.trade-header-your-gold {
+
+    margin-left: 78px;
+    display:inline;
+}
+
+div.trade-horizontal-border
+{
+    background-decorator: image;
+    background-image: /data/textbox.cel 0px 0px 585px 2px;
+    width: 585px;
+    height: 2px;
+    display: block;
+}
+
+div#tradeItems {
+    width: 585px;
+    height: 214px;
+    display:block;
+}
+
+div.trade-footer-separator {
+    width:585px;
+    height:12px;
+    display:block;
+}
+
+div.trade-footer {
+    width: 585px;
+    height: 44px;
+    display:block;
+    text-align:center;
+}
+
+span.pentagon_left
+{
+   icon-decorator: faanim;
+   icon-animfile: /data/pentspn2.cel;
+   icon-playtime: 0.3;
+
+   display: inline-block;
+   position: relative;
+   width: 12px;
+   height: 12px;
+   top: 2px;
+   left: -7px;
+}
+
+span.pentagon_right
+{
+   icon-decorator: faanim;
+   icon-animfile: /data/pentspn2.cel;
+   icon-playtime: 0.3;
+
+   display: inline-block;
+   position: relative;
+   width: 12px;
+   height: 12px;
+   top: 2px;
+   right: -3px;
+}
+
+span.pentagon_separator
+{
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+}
+

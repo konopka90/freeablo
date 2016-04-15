@@ -1,0 +1,42 @@
+<rml>
+<head>
+<style>
+div#horizontalSeparator_top
+{
+    height: 41px;
+    width: 100%;
+    display:block;
+}
+</style>
+<link type="text/template" href="trade_2.rml"/>
+<script>
+
+import rocket
+import freeablo
+import dialogues
+from menu import Menu
+
+mainMenu = None
+
+def onLoad(document):
+    entries = [
+    {"text": 'cap 1', "func": freeablo.closeDialogue},
+    {"text": 'cap 2', "func": freeablo.closeDialogue},
+    {"text": 'cap 3', "func": freeablo.closeDialogue},
+    {"text": 'cap 4', "func": freeablo.closeDialogue},
+    ]
+
+
+    global mainMenu
+    mainMenu = Menu(document, 'mainMenu', 'tradeItems',  entries, dialogues.ENTRY_SELECTED, dialogues.ENTRY_NOT_SELECTED)
+
+def onKeyDown(event, document):
+    freeablo.closeDialogue()
+    mainMenu.onKeyDown(event)
+
+</script>
+</head>
+<body template="trade_2" onload="onLoad(document)" onkeydown="onKeyDown(event, document)">
+    hello
+</body>
+</rml>

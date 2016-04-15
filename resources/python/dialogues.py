@@ -11,6 +11,8 @@ ENTRY_SELECTED = '<span class="pentagon_left"/>%s<span class="pentagon_right"/>'
 ENTRY_NOT_SELECTED = '<span style="visibility: hidden;" class="pentagon_left"/>%s<span style="visibility: hidden;" class="pentagon_right"/>'
 DIALOGUE_PATH = "resources/gui/dialogues/"
 
+onTradeFinishOpenDialogue = ""
+
 def closeOtherWindows():
     docmanage.manager.hideDoc(docmanage.manager.PauseFile)
     docmanage.manager.hideDoc(docmanage.manager.InventoryFile)
@@ -44,9 +46,21 @@ def openScrollbox(rml, openingSound, onFinishOpenDialogue = None):
         else:
             onFinishOpenDialogue = DIALOGUE_PATH + onFinishOpenDialogue
 
-        print onFinishOpenDialogue
-
         freeablo.openDialogueScrollbox(rml, onFinishOpenDialogue)
+
+def openTrade(rml):
+    
+    global onTradeFinishOpenDialogue
+
+    openDialogue(rml, "")
+    onTradeFinishOpenDialogue = "NPCsmith.rml"
+
+def closeTrade():
+
+    global onTradeFinishOpenDialogue
+
+    freeablo.closeDialogue()
+    openDialogue(onTradeFinishOpenDialogue, "")
 
 def talkTo(npcId):
 
