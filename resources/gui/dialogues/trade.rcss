@@ -110,6 +110,24 @@ span.pentagon-right
    margin-left: 4px;
 }
 
+span.empty-pentagon-left
+{
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   margin-right: 8px;
+
+}
+
+span.empty-pentagon-right
+{
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   margin-left: 4px;
+
+}
+
 span.pentagon_separator
 {
    display: inline-block;
@@ -128,6 +146,7 @@ span.trade-menu-entry
 {
     height: 48px;
     margin-left: 4px;
+    width: 560px;
 }
 
 span.trade-menu-item-name 

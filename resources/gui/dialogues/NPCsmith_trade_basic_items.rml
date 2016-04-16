@@ -29,11 +29,10 @@ def onLoad(document):
 
 
     global tradeMenu
-    tradeMenu = TradeMenu(document, 'tradeMenu', 'tradeItems',  entries, dialogues.ENTRY_SELECTED, dialogues.ENTRY_NOT_SELECTED)
+    tradeMenu = TradeMenu(document, 'tradeMenu', 'tradeItems',  entries)
 
 def onKeyDown(event, document):
-    freeablo.closeDialogue()
-    mainMenu.onKeyDown(event)
+    tradeMenu.onKeyDown(event)
 
 </script>
 </head>

@@ -7,7 +7,7 @@ class TradeMenu(object):
     or clicked with the mouse. For an example of usage, see resources/gui/pausemenu.rml.
     """
 
-    def __init__(self, doc, selfName, containerId, entries, fmtSelected, fmtNotSelected, onSelect=None):
+    def __init__(self, doc, selfName, containerId, entries, onSelect=None):
         """
         Arguments:
         doc -- The rocket.Document instance to operate on.
@@ -30,8 +30,6 @@ class TradeMenu(object):
         self.entries = entries
         self.containerId = containerId
         self.selfName = selfName
-        self.fmtSelected = fmtSelected
-        self.fmtNotSelected = fmtNotSelected
         self.onSelect = onSelect
 
         self.initMenu()
@@ -43,9 +41,9 @@ class TradeMenu(object):
             args = val["args"] if "args" in val else ""
             onclick = (val["strFunc"]+"({0})").format(args) if "strFunc" in val else ""
             entryStr = '<span class="trade-menu-entry" id="tradeMenuEntry%05d" onmouseover="%s.setSelected(%05d)" onclick="%s.activate()" style="display:block;">' % (i, self.selfName, i, self.selfName)
-            entryStr +=     '<span class="pentagon-left"></span>'
+            entryStr +=     '<span class="empty-pentagon-left" id="pentagon-left-%05d"></span>' % i
             entryStr +=     '<span class="trade-menu-item-name">%s</span><span class="trade-menu-item-price">%d</span>' % (val["text"], val["price"])
-            entryStr +=     '<span class="pentagon-right"></span>'
+            entryStr +=     '<span class="empty-pentagon-right" id="pentagon-right-%05d"></span>' % i
             entryStr +=     '<span class="trade-menu-item-description">'
             entryStr +=         'armor: 2 dur: 15/15, no required attributes'
             entryStr +=     '</span>'
@@ -70,6 +68,14 @@ class TradeMenu(object):
     def getEntryElement(self, num):
         return self.doc.GetElementById('tradeMenuEntry%05d' % num)
 
+    def getLeftPentagon(self, num):
+        return self.doc.GetElementById('pentagon-left-%05d' % num)
+
+    def getRightPentagon(self, num):
+        return self.doc.GetElementById('pentagon-right-%05d' % num)
+
+    
+
     def setSelected(self, num, playSound=True):
         if self.current != num:
             if playSound:
@@ -80,14 +86,25 @@ class TradeMenu(object):
                 if self.onSelect != None:
                     self.onSelect(self.doc, num)
 
-            elem = self.getEntryElement(num)
-            #elem.inner_rml = self.fmtSelected % self.entries[num]["text"]
+            elem = self.getLeftPentagon(num)
+            elem.SetClass('pentagon-left', True)
+            elem.SetClass('empty-pentagon-left', False)
+
+            elem = self.getRightPentagon(num)
+            elem.SetClass('pentagon-right', True)
+            elem.SetClass('empty-pentagon-right', False)
+
             self.current = num
 
     
     def setNotSelected(self, num):
-        elem = self.getEntryElement(num)
-        #elem.inner_rml = self.fmtNotSelected % self.entries[num]["text"]
+        elem = self.getLeftPentagon(num)
+        elem.SetClass('pentagon-left', False)
+        elem.SetClass('empty-pentagon-left', True)
+
+        elem = self.getRightPentagon(num)
+        elem.SetClass('pentagon-right', False)
+        elem.SetClass('empty-pentagon-right', True)
 
     def activate(self):
         freeablo.playClickButtonSound()
