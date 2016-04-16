@@ -15,20 +15,21 @@ import rocket
 import freeablo
 import dialogues
 from menu import Menu
+from tradeMenu import TradeMenu
 
-mainMenu = None
+tradeMenu = None
 
 def onLoad(document):
     entries = [
-    {"text": 'cap 1', "func": freeablo.closeDialogue},
-    {"text": 'cap 2', "func": freeablo.closeDialogue},
-    {"text": 'cap 3', "func": freeablo.closeDialogue},
-    {"text": 'cap 4', "func": freeablo.closeDialogue},
+    {"text": 'cap', "func": freeablo.closeDialogue, "price" : 25},
+    {"text": 'cloak', "func": freeablo.closeDialogue, "price" : 100},
+    {"text": 'leather armor', "func": freeablo.closeDialogue, "price" : 400},
+    {"text": 'short sword', "func": freeablo.closeDialogue, "price" : 1200},
     ]
 
 
-    global mainMenu
-    mainMenu = Menu(document, 'mainMenu', 'tradeItems',  entries, dialogues.ENTRY_SELECTED, dialogues.ENTRY_NOT_SELECTED)
+    global tradeMenu
+    tradeMenu = TradeMenu(document, 'tradeMenu', 'tradeItems',  entries, dialogues.ENTRY_SELECTED, dialogues.ENTRY_NOT_SELECTED)
 
 def onKeyDown(event, document):
     freeablo.closeDialogue()

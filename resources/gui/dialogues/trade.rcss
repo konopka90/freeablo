@@ -68,7 +68,7 @@ div.trade-horizontal-border
 
 div#tradeItems {
     width: 585px;
-    height: 214px;
+    height: 193px;
     display:block;
 }
 
@@ -85,32 +85,29 @@ div.trade-footer {
     text-align:center;
 }
 
-span.pentagon_left
+span.pentagon-left
 {
    icon-decorator: faanim;
    icon-animfile: /data/pentspn2.cel;
    icon-playtime: 0.3;
 
    display: inline-block;
-   position: relative;
    width: 12px;
    height: 12px;
-   top: 2px;
-   left: -7px;
+   margin-right: 8px;
+
 }
 
-span.pentagon_right
+span.pentagon-right
 {
    icon-decorator: faanim;
    icon-animfile: /data/pentspn2.cel;
    icon-playtime: 0.3;
 
    display: inline-block;
-   position: relative;
    width: 12px;
    height: 12px;
-   top: 2px;
-   right: -3px;
+   margin-left: 4px;
 }
 
 span.pentagon_separator
@@ -120,3 +117,38 @@ span.pentagon_separator
    height: 12px;
 }
 
+div.trade-horizontal-top-separator 
+{
+    height: 17px;
+    width: 550px;
+    display:block;
+}
+
+span.trade-menu-entry
+{
+    height: 48px;
+    margin-left: 4px;
+}
+
+span.trade-menu-item-name 
+{
+    display: inline-block;
+    width: 440px;
+    height: 12px;
+}
+
+span.trade-menu-item-price 
+{
+    display: inline-block;
+    width: 75px;
+    height: 12px;
+    text-align:right;
+}
+
+span.trade-menu-item-description
+{
+    display:block;
+    width: 453px;
+    height: 12px;
+    margin-left:20px;
+}
