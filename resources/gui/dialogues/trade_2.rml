@@ -10,8 +10,18 @@
         <div class="trade-header-your-gold">your gold :100</div>
     </div>
     <div class="trade-horizontal-border"></div>
-    <div class="trade-horizontal-top-separator"></div>
-    <div id="tradeItems"></div>
+    <div class="trade-left-container">
+        <div class="trade-left-container-horizontal-top-separator"></div>
+        <div id="tradeItems"></div>
+    </div>
+    <div class="trade-right-container">
+        <div class="trade-right-container-horizontal-top-separator"></div>
+        <div class="trade-scrollbar-up"></div>
+        <div class="trade-scrollbar-background">
+            <div class="trade-scrollbar-indicator"></div>
+        </div>
+        <div class="trade-scrollbar-down"></div>
+    </div>
     <div class="trade-horizontal-border"></div>
     <div class="trade-footer-separator"></div>
     <div class="trade-footer" onclick="dialogues.closeTrade()">

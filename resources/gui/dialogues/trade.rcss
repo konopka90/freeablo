@@ -67,9 +67,21 @@ div.trade-horizontal-border
 }
 
 div#tradeItems {
-    width: 585px;
+    width: 565px;
     height: 193px;
-    display:block;
+
+}
+
+div.trade-left-container {
+    width: 573px;
+    height: 210px;
+    display:inline-block;
+}
+
+div.trade-right-container {
+    width: 12px;
+    height: 210px;
+    display:inline-block;
 }
 
 div.trade-footer-separator {
@@ -84,6 +96,57 @@ div.trade-footer {
     display:block;
     text-align:center;
 }
+
+div.trade-scrollbar-up {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-decorator: image;
+    background-image: /data/textslid.cel&frame=9;
+}
+
+div.trade-scrollbar-down {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-decorator: image;
+    background-image: /data/textslid.cel&frame=8;
+}
+
+div.trade-scrollbar-up-click {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-decorator: image;
+    background-image: /data/textslid.cel&frame=11;
+}
+
+div.trade-scrollbar-down-click {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-decorator: image;
+    background-image: /data/textslid.cel&frame=10;
+}
+
+div.trade-scrollbar-background {
+    width: 12px;
+    height: 180px;
+    display:block;
+    background-decorator: tiled-vertical;
+    background-top-image: /data/textslid.cel&frame=13;
+    background-bottom-image: /data/textslid.cel&frame=13;
+    background-center-image: /data/textslid.cel&frame=13 repeat-truncate;
+}
+
+div.trade-scrollbar-indicator {
+    width: 12px;
+    height: 12px;
+    display:block;
+    background-decorator: image;
+    background-image: /data/textslid.cel&frame=12;
+}
+
 
 span.pentagon-left
 {
@@ -135,11 +198,24 @@ span.pentagon_separator
    height: 12px;
 }
 
-div.trade-horizontal-top-separator 
+div.trade-left-container-horizontal-top-separator
 {
     height: 17px;
     width: 550px;
     display:block;
+}
+
+div.trade-right-container-horizontal-top-separator
+{
+    height: 3px;
+    width: 12px;
+    display:block;
+}
+
+div.trade-scrollbar
+{
+    width: 20px;
+    height: 150px;
 }
 
 span.trade-menu-entry
