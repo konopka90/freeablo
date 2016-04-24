@@ -21,12 +21,12 @@ tradeMenu = None
 
 def onLoad(document):
     entries = [
-    {"text": 'cap', "func": freeablo.closeDialogue, "price" : 25},
-    {"text": 'cloak', "func": freeablo.closeDialogue, "price" : 100},
-    {"text": 'leather armor', "func": freeablo.closeDialogue, "price" : 400},
-    {"text": 'short sword', "func": freeablo.closeDialogue, "price" : 1200},
-    {"text": 'double sword', "func": freeablo.closeDialogue, "price" : 5000},
-    {"text": 'tripple sword', "func": freeablo.closeDialogue, "price" : 7000},
+    {"item": 'cap',             "price" : 25, "func": freeablo.closeDialogue},
+    {"item": 'cloak',           "price" : 100, "func": freeablo.closeDialogue},
+    {"item": 'leather armor',   "price" : 400, "func": freeablo.closeDialogue},
+    {"item": 'short sword',     "price" : 1200, "func": freeablo.closeDialogue},
+    {"item": 'double sword',    "price" : 5000, "func": freeablo.closeDialogue},
+    {"item": 'tripple sword',   "price" : 7000, "func": freeablo.closeDialogue},
     ]
 
 
