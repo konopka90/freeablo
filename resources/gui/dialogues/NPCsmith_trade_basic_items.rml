@@ -25,6 +25,8 @@ def onLoad(document):
     {"text": 'cloak', "func": freeablo.closeDialogue, "price" : 100},
     {"text": 'leather armor', "func": freeablo.closeDialogue, "price" : 400},
     {"text": 'short sword', "func": freeablo.closeDialogue, "price" : 1200},
+    {"text": 'double sword', "func": freeablo.closeDialogue, "price" : 5000},
+    {"text": 'tripple sword', "func": freeablo.closeDialogue, "price" : 7000},
     ]
 
 

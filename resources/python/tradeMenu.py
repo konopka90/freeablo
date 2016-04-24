@@ -31,39 +31,54 @@ class TradeMenu(object):
         self.containerId = containerId
         self.selfName = selfName
         self.onSelect = onSelect
+        self.maximumVisible = 4
+        self.visibleIndexStart = 0;
+        self.visibleIndexStop = len(self.entries) - 1
+        if self.visibleIndexStop > self.maximumVisible - 1:
+            self.visibleIndexStop = self.maximumVisible - 1
 
         self.initMenu()
+        self.current = -1
+        self.setSelected(0, False)
 
     def initMenu(self):
 
+        i = -1
         menuHtmlStr = ""
-        for i, val in enumerate(self.entries):
+        for id, val in enumerate(self.entries):
+            i = i + 1
+            if i < self.visibleIndexStart or i > self.visibleIndexStop:
+                continue
+
             args = val["args"] if "args" in val else ""
             onclick = (val["strFunc"]+"({0})").format(args) if "strFunc" in val else ""
-            entryStr = '<span class="trade-menu-entry" id="tradeMenuEntry%05d" onmouseover="%s.setSelected(%05d)" onclick="%s.activate()" style="display:block;">' % (i, self.selfName, i, self.selfName)
-            entryStr +=     '<span class="empty-pentagon-left" id="pentagon-left-%05d"></span>' % i
+            entryStr = '<span class="trade-menu-entry" id="tradeMenuEntry%05d" onmouseover="%s.mouseover(%05d)" onclick="%s.activate()" style="display:block;">' % (id, self.selfName, id, self.selfName)
+            entryStr +=     '<span class="empty-pentagon-left" id="pentagon-left-%05d"></span>' % id
             entryStr +=     '<span class="trade-menu-item-name">%s</span><span class="trade-menu-item-price">%d</span>' % (val["text"], val["price"])
-            entryStr +=     '<span class="empty-pentagon-right" id="pentagon-right-%05d"></span>' % i
+            entryStr +=     '<span class="empty-pentagon-right" id="pentagon-right-%05d"></span>' % id
             entryStr +=     '<span class="trade-menu-item-description">'
             entryStr +=         'armor: 2 dur: 15/15, no required attributes'
             entryStr +=     '</span>'
             entryStr += '</span>'
-            entryStr += '<span id="tradeMenuEntrySeparator%05d"></span>' % i
+            entryStr += '<span id="tradeMenuEntrySeparator%05d"></span>' % id
             menuHtmlStr += entryStr
 
         container = self.doc.GetElementById(self.containerId)
         container.inner_rml = menuHtmlStr
 
-        self.current = -1
-        self.setSelected(0, False)
+    def mouseover(self, num):
+        print "mouse over %d" % num
+        self.setSelected(num)
+
 
     def deleteEntry(self, num):
-        if len(self.entries) > 1 and num != len(self.entries) - 1:
+        if num < len(self.entries):
             del self.entries[num]
             self.initMenu()
             if self.onSelect != None:
                 self.onSelect(self.doc, 0)
 
+            self.onDeleteEntrySetSelected(num)
 
     def getEntryElement(self, num):
         return self.doc.GetElementById('tradeMenuEntry%05d' % num)
@@ -74,7 +89,18 @@ class TradeMenu(object):
     def getRightPentagon(self, num):
         return self.doc.GetElementById('pentagon-right-%05d' % num)
 
-    
+    def onDeleteEntrySetSelected(self, num):
+        elem = self.getLeftPentagon(num)
+
+        if elem != None:
+            elem.SetClass('pentagon-left', True)
+            elem.SetClass('empty-pentagon-left', False)
+
+            elem = self.getRightPentagon(num)
+            elem.SetClass('pentagon-right', True)
+            elem.SetClass('empty-pentagon-right', False)
+
+            self.current = num
 
     def setSelected(self, num, playSound=True):
         if self.current != num:
@@ -98,28 +124,54 @@ class TradeMenu(object):
 
     
     def setNotSelected(self, num):
-        elem = self.getLeftPentagon(num)
-        elem.SetClass('pentagon-left', False)
-        elem.SetClass('empty-pentagon-left', True)
 
-        elem = self.getRightPentagon(num)
-        elem.SetClass('pentagon-right', False)
-        elem.SetClass('empty-pentagon-right', True)
+        elem = self.getLeftPentagon(num)
+        if elem != None:
+            elem.SetClass('pentagon-left', False)
+            elem.SetClass('empty-pentagon-left', True)
+
+            elem = self.getRightPentagon(num)
+            elem.SetClass('pentagon-right', False)
+            elem.SetClass('empty-pentagon-right', True)
 
     def activate(self):
         freeablo.playClickButtonSound()
         currentEntry = self.entries[self.current]
-        if("func" in currentEntry):
-            currentEntry["func"](*currentEntry["args"]) if "args" in currentEntry \
-                else currentEntry["func"]()
+
+        self.deleteEntry(self.current)
+
+        #if("func" in currentEntry):
+        #    currentEntry["func"](*currentEntry["args"]) if "args" in currentEntry \
+        #        else currentEntry["func"]()
+
+    def moveDown(self):
+        if self.current + 1 > self.visibleIndexStop and self.visibleIndexStop + 1 < len(self.entries):
+            self.visibleIndexStart = self.visibleIndexStart + 1
+            self.visibleIndexStop = self.visibleIndexStop + 1
+            self.initMenu()
+
+        if self.current + 1 < len(self.entries):
+            self.setSelected(self.current + 1)
+
+    def moveUp(self):
+        if self.current - 1 < self.visibleIndexStart and self.visibleIndexStart - 1 >= 0:
+            self.visibleIndexStart = self.visibleIndexStart - 1
+            self.visibleIndexStop = self.visibleIndexStop - 1
+            self.initMenu()
+
+        if self.current - 1 >= 0:
+            self.setSelected(self.current - 1)
+
 
     def onKeyDown(self, event):
         if event.parameters['key_identifier'] == rocket.key_identifier.DOWN:
-            self.setSelected((self.current + 1) % len(self.entries))
+            self.moveDown()
             return True
+
         elif event.parameters['key_identifier'] == rocket.key_identifier.UP:
-            self.setSelected((self.current - 1) % len(self.entries))
+            self.moveUp()
             return True
+
         elif event.parameters['key_identifier'] == rocket.key_identifier.RETURN:
             self.activate()
             return True
