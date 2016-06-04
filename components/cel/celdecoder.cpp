@@ -690,7 +690,6 @@ namespace Cel
             if(lineNum % 2 == 1) {
                 zeroCount = 2;
             }
-
             int regularCount = decodeCount - zeroCount;
             (this->*decodeLineTransparency)(framePtr, pal, decodedFrame, regularCount, zeroCount);
             framePtr += decodeCount;
@@ -746,12 +745,13 @@ namespace Cel
 
         // Implicit transparent pixels.
         for (int i = decodeCount; i < 32; i++) {
-            decodedFrame.push_back(Colour(255,0,255,false));
+            decodedFrame.push_back(Colour(0,0,0,false));
         }
         // Explicit transparent pixels (zeroes).
         for (int i = 0; i < zeroCount; i++) {
-            decodedFrame.push_back(Colour(0,255,0,false));
+            decodedFrame.push_back(Colour(0,0,0,false));
         }
+
         // Explicit regular pixels.
         for (int i = zeroCount; i < decodeCount; i++) {
             Colour color = pal[framePtr[i]];
@@ -773,14 +773,14 @@ namespace Cel
         int decodeCount = zeroCount + regularCount;
 
         // Explicit regular pixels.
-        for (int i = zeroCount; i < decodeCount; i++) {
+        for (int i = 0; i < regularCount; i++) {
             Colour color = pal[framePtr[i]];
             decodedFrame.push_back(color);
         }
 
         // Explicit transparent pixels (zeroes).
         for (int i = 0; i < zeroCount; i++) {
-            decodedFrame.push_back(Colour(0,0,255,false));
+            decodedFrame.push_back(Colour(0,0,0,false));
         }
 
         // Implicit transparent pixels.
